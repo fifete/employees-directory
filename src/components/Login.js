@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { Navigate } from 'react-router-dom';
+import { useNavigate  } from 'react-router-dom';
 
-export const Login = () => {
+export const Login = ({setAuthorization}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessages, setErrorMessages] = useState('');
+    const navigate = useNavigate();
 
     const errors = {
         email: "invalid email",
@@ -43,7 +44,8 @@ export const Login = () => {
             } else {
                 // Login success
                 setErrorMessages('');
-                Navigate('/home')
+                setAuthorization(true);
+                navigate('/home');
                 console.log("Login success");
             }
         } else {
