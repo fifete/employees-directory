@@ -13,7 +13,7 @@ export const Home = () => {
     const getEmployeesData = async () => {
       setLoading(true);
       const res = await fetch(
-        `https://randomuser.me/api/?results=100&inc=gender,name,phone,email,country,id`
+        `https://randomuser.me/api/?results=100&inc=gender,name,phone,email,location,id`
       );
       const data = await res.json();
       setEmployeesData(data.results);
