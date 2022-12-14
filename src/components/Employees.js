@@ -17,24 +17,21 @@ export const Employees = ({ employees, loading }) => {
                 </tr>
             </thead>
             <tbody>
-                {employees.map((employee, i) => (
-                    <tr key={i}>
-                        <td>{employee.name.first}</td>
-                        <td>{employee.name.last}</td>
-                        <td>{employee.gender}</td>
-                        <td>{employee.location.country}</td>
-                        <td>{employee.email}</td>
-                        <td>{employee.phone}</td>
-                    </tr>
-                ))}
+                {
+                    employees === "Results not found" ? 
+                        <tr><td>Results not found</td></tr> :
+                        employees.map((employee, i) => (
+                            <tr key={i}>
+                                <td>{employee.name.first}</td>
+                                <td>{employee.name.last}</td>
+                                <td>{employee.gender}</td>
+                                <td>{employee.location.country}</td>
+                                <td>{employee.email}</td>
+                                <td>{employee.phone}</td>
+                            </tr>
+                        ))
+                }
             </tbody>
         </table>
-        // <ul>
-        //     {employees.map((employee, i) => (
-        //         <li key={i}>
-        //             {employee.name.first} {employee.name.last}
-        //         </li>
-        //     ))}
-        // </ul>
     )
 }
